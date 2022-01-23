@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnluCoWebAppHalil.Model;
+using UnluCoWebAppHalil.Repositories;
+using UnluCoWebAppHalil.Services;
 
 namespace UnluCoWebAppHalil
 {
@@ -12,6 +14,14 @@ namespace UnluCoWebAppHalil
     [ApiController]
     public class FlightController : ControllerBase
     {
+        private readonly FlightRepository _flightRepo;
+        private readonly AddressService _addressService;
+        public FlightController(FlightRepository flightRepo, AddressService addressService)
+        {
+            _flightRepo = flightRepo;
+            _addressService = addressService;
+
+        }
         private static List<FlightTicket> FlightList = new List<FlightTicket>()
         {
             new FlightTicket("Halil","Bolat",1,"TK0008",default,true),

@@ -26,7 +26,7 @@ namespace UnluCoWebAppHalil.Middleware
                 Console.WriteLine(message);
                 await _next(context);
                 watch.Stop();
-                message = "[Response] Http" + context.Request.Method + "-" + context.Request.Path + " responded" + context.Response.StatusCode + " in " + "ms" + watch.ElapsedMilliseconds + "ms";
+                message = "[Response] Http" + context.Request.Method + "-" + context.Request.Path + " responded " + context.Response.StatusCode + " in " + "ms " + watch.ElapsedMilliseconds + "ms";
                 Console.WriteLine(message);
             }
             catch (Exception ex)
